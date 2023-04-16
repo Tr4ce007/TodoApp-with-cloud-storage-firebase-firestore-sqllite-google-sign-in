@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome"
+        android:id="@+id/welcome"
+        android:textStyle="bold"
+        android:textSize="35sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_margin="70dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SignIn with google"
+        android:id="@+id/signin"
+        android:layout_below="@+id/welcome"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_margin="100dp"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/google_signin_btn"
+        android:layout_below="@+id/signin"
+        android:foreground="@drawable/google"
+        app:srcCompat="@drawable/google"
+        android:layout_marginLeft="100dp"
+        android:layout_marginBottom="50dp"
+        tools:srcCompat="@drawable/google" />
+
+
+
+
+
+</RelativeLayout>
