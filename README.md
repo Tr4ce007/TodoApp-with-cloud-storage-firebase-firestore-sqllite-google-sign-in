@@ -1,5 +1,6 @@
 # To - Do App with Cloud Sync.
 Android To-Do Application with local and cloud storage.
+For Better Results use PNG images or Images with low dimensions.
 
 ## Motive 
 To learn using the newest techniques of android technology.
