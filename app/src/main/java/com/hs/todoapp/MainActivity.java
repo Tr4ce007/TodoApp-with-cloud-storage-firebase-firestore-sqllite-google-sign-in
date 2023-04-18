@@ -16,6 +16,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 
+import Util.UserApi;
+
 public class MainActivity extends AppCompatActivity {
     ImageView signinGoogle;
     GoogleSignInOptions gso;
@@ -30,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
         gsc= GoogleSignIn.getClient(this,gso);
+//Remove next 4 line to make login everytime.
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        if(acct != null){
+            navigatetoTodoactivity();
+        }
         signinGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,6 +66,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     void navigatetoTodoactivity(){
+
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        if(acct != null){
+            UserApi userApi = UserApi.getInstance();
+            userApi.setUserName(acct.getDisplayName());
+            userApi.setUserEmail(acct.getEmail());
+        }
+
         Toast.makeText(getApplicationContext(),"signedIn" ,Toast.LENGTH_LONG).show();
         Intent i = new Intent(MainActivity.this,todoactivity.class);
         startActivity(i);

@@ -37,4 +37,18 @@
         android:backgroundTint="@android:color/holo_blue_light"
         android:src="@drawable/baseline_add" />
 
+    <Button
+        android:id="@+id/sync"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="sync"
+        android:text="Sync"
+        android:textAllCaps="false"
+        android:textSize="16sp" />
+
 </RelativeLayout>

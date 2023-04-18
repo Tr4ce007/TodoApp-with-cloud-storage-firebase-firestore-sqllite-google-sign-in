@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.hs.todoapp.Adapter.ToDoAdapter;
@@ -24,6 +26,7 @@ import java.util.List;
 public class todoactivity extends AppCompatActivity implements DialogCloseListener {
 
     private RecyclerView tasksRecyclerView;
+    private Button syncButton;
     private ToDoAdapter tasksAdapter;
     private FloatingActionButton fab;
     private List<ToDoModel> taskList;
@@ -37,6 +40,8 @@ public class todoactivity extends AppCompatActivity implements DialogCloseListen
 
         db = new DatabaseHandler(this);
         db.openDatabase();
+
+        syncButton = findViewById(R.id.sync);
 
 
         taskList = new ArrayList<>();
@@ -114,21 +119,8 @@ public class todoactivity extends AppCompatActivity implements DialogCloseListen
         tasksAdapter.notifyDataSetChanged();
     }
 
-    /* My Swipe IMplementation
-    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
-        @Override
-        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-            return false;
-        }
-
-        @Override
-        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-            int pos = viewHolder.getAdapterPosition();
-            tasksAdapter.deleteItem(pos);
-        }
-    };
-
-
-
-          ends here   */
+    public void sync(View view){
+        Intent i = new Intent(todoactivity.this,sync.class);
+        startActivity(i);
+    }
 }
